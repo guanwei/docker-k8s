@@ -15,11 +15,9 @@ spec:
     version: 1.40.3
   values:
     controller:
-      kind: DaemonSet
       service:
         externalIPs:
-          - 161.92.170.142
-          - 161.92.169.152
+          - 161.92.169.153
       metrics:
         enabled: false
         serviceMonitor:
