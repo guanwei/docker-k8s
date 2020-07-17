@@ -1,0 +1,17 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: hostpath-provisioner
+  namespace: kube-system
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: semver:~0.2
+spec:
+  releaseName: hostpath-provisioner
+  chart:
+    repository: https://charts.rimusz.net
+    name: hostpath-provisioner
+    version: 0.2.9
+  values:
+    NodeHostPath: /mnt/glusterfs/k8s-volume

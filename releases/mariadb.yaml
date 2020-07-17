@@ -1,0 +1,24 @@
+---
+apiVersion: helm.fluxcd.io/v1
+kind: HelmRelease
+metadata:
+  name: mariadb
+  namespace: demo
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.chart-image: semver:~10.3
+spec:
+  releaseName: mariadb
+  chart:
+    repository: https://charts.bitnami.com/bitnami
+    name: mariadb
+    version: 7.6.1
+  values:
+    rootUser:
+      password: Q1w2e3r4
+    volumePermissions:
+      enabled: true
+    metrics:
+      enabled: false
+      serviceMonitor:
+        enabled: false
